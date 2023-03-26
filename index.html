@@ -1,0 +1,138 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>CC Project</title>
+    <style>
+      @font-face {
+        font-family:"C64";
+        src: url("./content/fonts/C64_Pro_Mono-STYLE.ttf") format("truetype"),
+             url("./content/fonts/C64_Pro_Mono-STYLE.woff") format("woff");
+      } 
+
+      body { margin: 0; }
+      * {
+        font-family: "C64";
+      }
+
+      div {
+        position: absolute;
+        display: flex;
+        flex: 1;
+        color: white;
+        background-color: black;
+      }
+
+      #blurb {
+        display: block;
+        left: 0;
+        width: 20%;
+        height: 37.5%;
+        text-align: center;
+        margin: 1.5%;
+        border: double white 
+      }
+
+      #sidebar {
+        display: block;
+        right: 0;
+        width: 20%;
+        height: 85%;
+        text-align: center;
+        margin: 1.5%;
+
+        border: double white 
+      }
+
+      #sidebar #title {
+        position: relative;
+        font-size: 1em;
+        text-decoration: underline;
+      }
+
+      #sidebar #desc {
+        position: relative;
+        font-size: 1em;
+        color: gray;
+        text-align: left;
+      }
+
+      #sidebar #date {
+        position: relative;
+        font-size: 0.7em;
+        color: gray;
+        text-align: center;
+      }
+
+      #sidebar #timeline-container {
+        display: block;
+        left: 15%;
+        top: 75%;
+        width: 70%;
+        height: 15%;
+        margin: auto;
+        border: solid 1px white;
+      }
+
+      #sidebar #timeline {
+        align-items: center;
+        left: 5%;
+        top: 30%;
+      }
+
+      #slider {
+        display: block;
+        width: 100%;
+        margin: auto;
+      }
+
+      #debugbar {
+        bottom: 0;
+        width: 100%;
+      }
+
+      #debugbar button {
+        background-color: black;
+        color: white;
+      }
+
+      #debugbar div {
+        right: 0;
+        color: #cc9500;
+      }
+
+    </style>
+  </head>
+  <body>
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "./node_modules/three/src/Three.js",
+          "controls": "./node_modules/three/examples/jsm/controls/OrbitControls.js"
+        }
+      }
+    </script>
+    <script src="sketch.js" type="module"></script>
+    <div id="debugbar">
+      <button id="movebutton">Move Camera (debug test)</button>
+      <button id="rotatebutton">Toggle Rotation</button>
+      <button id="todobutton">To Do</button>
+      <div>!visuals are subject to change!</div> 
+    </div>
+    <div id="sidebar">
+      <p id="title"></p>
+      <p id="date"></p>
+      <p id="desc"></p>
+      <div id="timeline-container">
+        <div id="timeline">
+          <input type="range" min="1917" max="1921" value="1917" class="slider" id="slider">
+          &nbsp;<p id="year">1917</p>
+        </div>
+      </div>
+    </div>
+    <div id="blurb">
+      <h2>Interactive History Viewer</h2> 
+      <p>Prototype - currently only has information on Russia.<br><br>Use the timeline on the right to move forwards and backwards in time.<br><br>Click on a Point of Interest to see information about the historical event it represents.</p>
+    </div>
+  </body>
+</html>
